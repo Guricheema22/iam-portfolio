@@ -1,7 +1,7 @@
 ## Project 01 – Entra ID User & Group Management
 
 ### Scenario
-Contoso Global Services requires a secure and scalable approach to manage
+EsimXpress requires a secure and scalable approach to manage
 user identities and access in the cloud using Microsoft Entra ID.
 
 ### What I implemented
