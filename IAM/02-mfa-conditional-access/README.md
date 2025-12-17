@@ -44,6 +44,28 @@ This project was performed in an active Entra ID tenant.
 No changes were made that could impact production users.
 All observations were conducted using test identities only.
 
+### Policy Design Detail (Design-Only)
+
+The following Conditional Access policies were designed but not enforced
+to avoid risk in a live tenant and due to licensing constraints.
+
+Policy 1 – Baseline MFA
+- Users: All users
+- Apps: All cloud apps
+- Access control: Require MFA
+- Exclusion: Emergency access account
+
+Policy 2 – Admin Protection
+- Users: IT-Admins group
+- Apps: All cloud apps
+- Access control: Require MFA every sign-in
+
+Policy 3 – High-Risk Sign-ins
+- Users: All users
+- Condition: Sign-in risk = High
+- Access control: Block access
+
+
 ### What I would improve next
 - Implement Conditional Access policies in report-only mode
 - Introduce break-glass accounts excluded from MFA policies
