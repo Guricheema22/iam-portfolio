@@ -108,5 +108,4 @@ The administrator must:
 
 ---
 
-## Next Lab
-➡️ Lab 02 – MFA & Conditional Access Policies
+
