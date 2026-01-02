@@ -1,21 +1,23 @@
 Lab 02 – Microsoft Intune BYOD Enrollment & Application Management
 Overview
 
-This lab demonstrates how Microsoft Intune is used to securely manage Bring Your Own Device (BYOD) access in an enterprise environment.
+This lab demonstrates how Microsoft Intune is used to manage Bring Your Own Device (BYOD) access in an enterprise environment.
 
-The objective is to showcase how an existing Microsoft Entra ID user enrolls a personal Windows device, gains controlled access to corporate applications, and is governed through centralized endpoint management — reflecting real-world enterprise device management practices.
+The objective is to show how an existing Microsoft Entra ID user enrolls a personal Windows device into Intune, gains controlled access to corporate applications, and is governed through centralized endpoint management — reflecting real-world enterprise endpoint security operations.
 
 Scenario
 
-Employee John Smith uses his personal Windows 11 Pro device to access company resources and applications.
+Employee John Smith uses his personal Windows 11 Pro device to access company applications and resources.
 
-The organization must ensure:
+The administrator must:
 
-The device is securely enrolled into Microsoft Intune
+Enroll the personal device into Microsoft Intune
 
-Corporate visibility and control are applied without full device ownership
+Maintain BYOD ownership separation
 
-Only IT-approved applications are available to the user
+Control which applications are available to the user
+
+Verify device compliance and application visibility
 
 Technologies Used
 
@@ -29,167 +31,103 @@ Windows 11 Pro (BYOD)
 
 Microsoft Company Portal
 
-Prerequisites
+Step-by-Step Implementation
+1️⃣ BYOD Device Enrollment
 
-User John Smith exists in Microsoft Entra ID
+John Smith enrolled his personal Windows 11 device using Microsoft Entra ID
 
-User is a member of M365-Business-Users group
+Device joined through Access work or school
 
-Licenses are assigned via group-based licensing
+Enrollment completed without converting the device to corporate-owned
 
-Microsoft Intune is enabled in the tenant
+📸 Evidence: 01-device-enrolled.png
 
-Phase 1 – BYOD Device Enrollment
-Objective
+2️⃣ Device Visibility & Compliance
 
-Enroll John Smith’s personal Windows device into Microsoft Intune using Entra ID, enabling secure access while maintaining BYOD separation.
+Administrator verified device enrollment in Intune
 
-Enrollment Steps (End User)
+Confirmed:
 
-On John Smith’s personal Windows device:
+Device appears under Windows devices
 
-Open Settings
+Ownership is marked as Personal
 
-Navigate to:
-Settings → Accounts → Access work or school
+Device is managed by Intune
 
-Select Connect
+Compliance status is Compliant
 
-Choose Join this device to Microsoft Entra ID
+📸 Evidence: 02-device-visible-intune.png
 
-Sign in using John Smith’s Entra ID credentials
+3️⃣ Company Portal Access
 
-Complete setup and restart the device if prompted
+John Smith signed in to Microsoft Company Portal
 
-Validation (Admin)
+Verified successful authentication and device trust
 
-Open Intune Admin Center
+📸 Evidence: 03-company-portal-login.png
 
-Navigate to:
-Devices → Windows
+4️⃣ Application Visibility Validation
 
-Confirm the device:
+Confirmed that the Apps section is accessible in Company Portal
 
-Appears in the device list
+Validated that application catalog loads correctly for the user
 
-Is managed by Intune
+📸 Evidence: 04-company-portal-apps-visible.png
 
-Ownership is Personal
+5️⃣ Application Assignment via Intune
 
-Compliance status shows Compliant
+Administrator assigned approved applications via Intune
 
-✅ This confirms successful BYOD enrollment.
+Applications were assigned to M365-Business-Users security group
 
-Phase 2 – Company Portal Access
-Objective
+Assignment type configured as Available for enrolled devices
 
-Validate that the enrolled device can access corporate resources via the Microsoft Company Portal.
+📸 Evidence: 05-app-assignment-intune.png
 
-Steps
+6️⃣ End-User Application Access
 
-Open Microsoft Company Portal
+John Smith verified assigned applications appear in Company Portal
 
-Sign in as John Smith
+Confirmed only IT-approved applications are available for installation
 
-Navigate to the Apps section
+📸 Evidence: 06-approved-apps-visible.png
 
-Validation
+7️⃣ Configuration Profile Overview
 
-Device appears under Devices
+Administrator reviewed Windows configuration profiles in Intune
 
-Applications section is available
+Identified enterprise controls such as:
 
-Assigned corporate apps are visible
+BitLocker encryption
 
-✅ This validates successful Intune enrollment and user-device trust.
+Password policies
 
-Phase 3 – Application Control via Intune
-Objective
+Device security settings
 
-Demonstrate application allow-listing where users can install only IT-approved applications.
+📸 Evidence: 07-configuration-profiles.png
 
-App Assignment Steps (Admin)
+Security & Endpoint Concepts Demonstrated
 
-Open Intune Admin Center
+BYOD device onboarding
 
-Navigate to:
-Apps → All apps
+Separation of personal vs corporate ownership
 
-Select an application (for example):
+Centralized endpoint management
 
-Microsoft 365 Apps for Windows
+Application allow-listing
 
-Microsoft Edge
+Group-based access control
 
-Open Assignments
+Endpoint compliance visibility
 
-Assign the app to:
+Key Takeaways
 
-M365-Business-Users group
+BYOD devices can be securely managed without full corporate ownership
 
-Set assignment type:
+Intune provides centralized visibility and control over endpoints
 
-Available for enrolled devices or Required
+Application access can be tightly controlled using group assignments
 
-Save the configuration
+Company Portal acts as a secure bridge between users and corporate resources
 
-End-User Validation
-
-Open Company Portal
-
-Navigate to Apps
-
-Confirm:
-
-Assigned applications are visible
-
-Installation is permitted
-
-✅ Application access is successfully restricted and managed.
-
-Phase 4 – Configuration Profiles Overview
-Objective
-
-Introduce device configuration profiles used to enforce enterprise security and system standards.
-
-Navigation
-
-Open Intune Admin Center
-
-Navigate to:
-Devices → Windows → Configuration
-
-Create a new Configuration Profile
-
-Select:
-
-Platform: Windows 10 and later
-
-Profile type: Settings catalog
-
-Examples of Enterprise Controls
-
-BitLocker drive encryption
-
-Password and lock screen policies
-
-Device security baselines
-
-OS and system restrictions
-
-Validation
-
-Profile assigned to M365-Business-Users
-
-Device reports successful policy application
-
-Evidence Collection
-Recommended Evidence
-
-Device enrolled in Intune
-
-Company Portal app visibility
-
-App assignment configuration
-
-Device compliance status
+Endpoint management complements identity-first security models
