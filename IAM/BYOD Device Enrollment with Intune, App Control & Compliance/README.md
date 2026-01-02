@@ -113,11 +113,4 @@ The administrator must:
 
 ---
 
-## Next Lab
-**Lab 03 – Conditional Access & Zero Trust Enforcement**
 
-The next lab will focus on:
-- Conditional Access policies
-- MFA enforcement
-- Device compliance conditions
-- Zero Trust access decisions
