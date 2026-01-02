@@ -1,192 +1,217 @@
-📘 Lab 02 – BYOD Device Enrollment with Intune, App Control & Compliance
+📌 Lab Overview
 
-## 📌 Lab Overview
+This lab demonstrates how an enterprise organization uses Microsoft Entra ID and Microsoft Intune to manage identities, devices, and applications using modern Zero Trust principles.
 
-In **Lab 01**, we created an end user (**John Smith**) and verified access by signing in through the end-user portal without enforcing any device controls.
+The lab is split into multiple phases to reflect how these controls are introduced in real-world environments.
 
-In this lab, we move to a **real enterprise BYOD (Bring Your Own Device) scenario**, where:
+Important Design Choice
 
-> **John Smith accesses company applications from his personal Windows device**, and access is governed by **device enrollment, application control, and compliance policies**.
+Conditional Access is intentionally excluded from this lab
 
-This lab focuses on **Microsoft Intune fundamentals** and establishes the foundation required for **Conditional Access**, which will be implemented in the next lab.
+Conditional Access will be implemented in the next dedicated lab for clarity and depth
 
----
+🏗 Environment Details
 
-## 🎯 Lab Objectives
+Tenant: Microsoft Entra ID (Azure AD)
 
-By the end of this lab, you will be able to:
+MDM: Microsoft Intune
 
-- Enroll a **personal Windows 11 Pro device** into Intune  
-- Use **group-based licensing** instead of direct user licensing  
-- Control **which applications users are allowed to install**  
-- Apply and evaluate **device compliance policies**  
-- Validate device compliance from both admin and end-user perspectives  
-- Collect **evidence** to prove enforcement  
+Device Type: Windows 11 Pro (BYOD)
 
-> ⚠️ **Conditional Access is intentionally excluded** and will be covered in **Lab 03**.
+User: John Smith
 
----
+License Model: Group-based licensing
 
-## 🧱 Lab Architecture
+User Group: M365-Business-Users
 
-| Component | Configuration |
-|--------|--------------|
-Identity Provider | Microsoft Entra ID |
-Device Management | Microsoft Intune |
-User | John Smith |
-User Group | `M365-Business-Users` |
-Licensing | Group-based |
-Device Type | Personal Windows 11 Pro (BYOD) |
-Security Scope | Device + Application Control |
+Phase 1 – Identity Creation & Baseline Access Validation
+Scenario
 
----
+The organization creates a new employee account and validates that identity authentication works correctly before allowing device enrollment or application access.
 
-## 👤 Phase 1 – Identity & Licensing (Enterprise Model)
+Steps
 
-### User Configuration
-- **User:** John Smith  
-- **Group Membership:**  
+Create user John Smith in Microsoft Entra ID
+
+Add John Smith to the group:
+
 M365-Business-Users
 
-csharp
-Copy code
+Assign licenses to the group, not the user:
 
-### Licensing Strategy
-- Microsoft 365 Business Premium is assigned to:
-M365-Business-Users
+Microsoft 365 Business Premium
 
-yaml
-Copy code
-- John Smith inherits the license automatically via group membership
+Microsoft Intune
 
-**Why group-based licensing?**
-- Scalable
-- Auditable
-- Enterprise best practice
-- Reduces administrative overhead
+Verify John Smith can sign in to:
 
----
+Microsoft Entra end-user portal
 
-## 💻 Phase 2 – Enrolling a Personal Device (BYOD)
+Validation
 
-### Scenario
-John Smith uses his **personal Windows 11 Pro device** to access company applications.
+User authentication is successful
 
-### Enrollment Steps
-On John Smith’s device:
+Licenses are inherited via group membership
 
-1. Open  
+No devices are enrolled at this stage
+
+✅ Identity is confirmed and ready for device onboarding
+
+Phase 2 – Enrolling a Personal Device (BYOD)
+Scenario
+
+John Smith uses his personal Windows 11 Pro device to access company resources.
+Microsoft Intune is introduced to securely manage the device without taking full ownership.
+
+Objectives
+
+Enroll a personal device into Intune
+
+Register the device with Microsoft Entra ID
+
+Validate device compliance and visibility
+
+Enrollment Steps (On John Smith’s Device)
+
+Open Settings
+
+Navigate to:
 Settings → Accounts → Access work or school
 
-markdown
-Copy code
-2. Click **Connect**
-3. Select  
-Join this device to Microsoft Entra ID
+Select Connect
 
-yaml
-Copy code
-4. Sign in as **John Smith**
-5. Complete setup and restart if prompted
+Choose Join this device to Microsoft Entra ID
 
----
+Sign in as John Smith
 
-### Enrollment Verification
+Complete enrollment and restart if prompted
 
-Run the following command:
+Admin Validation
 
-```cmd
-dsregcmd /status
-Expected output:
+Open Intune Admin Center
 
-yaml
-Copy code
-IsDeviceJoined : YES
-IsUserAzureAD  : YES
-This confirms the device is Entra ID joined and Intune managed.
+Navigate to:
+Devices → Windows
 
-📱 Phase 3 – Company Portal Access
+Confirm:
+
+Device is listed
+
+Managed by: Intune
+
+Ownership: Personal
+
+Compliance status: Compliant
+
+✅ Device enrollment completed successfully
+
+Phase 3 – Company Portal Access
+Purpose
+
+The Company Portal is the user-facing application that allows employees to:
+
+View approved applications
+
+Install corporate software
+
+Check device compliance
+
+Steps (End User)
+
 Open Company Portal
 
 Sign in as John Smith
 
-Confirm:
+Navigate to the Apps section
+
+Expected Outcome
 
 Device appears under Devices
 
-Applications section is available
+Apps tab is available
 
-This validates successful Intune enrollment.
+Company-approved applications are visible
 
-📦 Phase 4 – Application Control via Intune
+✅ Confirms successful Intune enrollment and user-device trust
+
+Phase 4 – Application Control via Intune
 Purpose
-In enterprise environments:
 
-Users are only allowed to install applications explicitly approved by IT.
+Enterprise environments restrict software installation to approved applications only.
 
-This phase demonstrates application allow-listing using Intune.
+This phase demonstrates how Intune controls which apps users can access.
 
-App Assignment Steps
+App Assignment (Admin Side)
+
+Open Intune Admin Center
+
 Navigate to:
+Apps → All apps
 
-nginx
-Copy code
-Intune → Apps → Windows
-Select an application (e.g. Microsoft 365 Apps, Microsoft Edge, Store apps)
+Select an application (example):
+
+Microsoft 365 Apps for Windows
+
+Microsoft Edge
 
 Open Assignments
 
 Assign the app to:
 
-Copy code
-M365-Business-Users
-Assignment Types
-Required → Installs automatically
+M365-Business-Users group
 
-Available for enrolled devices → Visible in Company Portal
+Choose assignment type:
 
-For this lab, apps are assigned as Available.
+Available for enrolled devices or Required
+
+Save the configuration
 
 End-User Validation
-On John Smith’s device:
 
 Open Company Portal
 
-Go to Apps
+Navigate to Apps
 
-Confirm approved applications are visible and installable
-
-🛡️ Phase 5 – Device Compliance Policy
-Compliance Requirements
-BitLocker enabled
-
-Secure Boot enabled
-
-Supported Windows version
-
-Configuration Steps
-Navigate to:
-
-mathematica
-Copy code
-Intune → Devices → Windows → Compliance policies
-Create a new policy for Windows 10 and later
-
-Configure required security settings
-
-Assign the policy to:
-
-Copy code
-M365-Business-Users
-Compliance Validation
-In Intune:
-
-mathematica
-Copy code
-Devices → Windows → Windows devices
 Confirm:
 
-Device status is Compliant
+Assigned applications are visible
 
-This confirms the device meets organisational security requirements.
+Installation is allowed
 
+✅ Application allow-listing enforced successfully
+
+Phase 5 – Configuration Profiles (Device Controls)
+Purpose
+
+Configuration profiles allow IT to enforce security and system settings on enrolled devices.
+
+Navigation
+
+Open Intune Admin Center
+
+Navigate to:
+Devices → Windows → Configuration
+
+Create a new Configuration Profile
+
+Select:
+
+Platform: Windows 10 and later
+
+Profile type: (e.g., Settings catalog)
+
+Examples of Controls
+
+BitLocker enforcement
+
+Password policies
+
+OS security baselines
+
+Device restrictions
+
+Validation
+
+Profile assigned to M365-Business-Users
+
+Device reports successful configuration status
