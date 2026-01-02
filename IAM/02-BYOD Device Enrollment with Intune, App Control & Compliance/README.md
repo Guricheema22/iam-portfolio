@@ -112,5 +112,16 @@ The administrator must:
 - Endpoint management complements identity-first security models
 
 ---
+## Evidence Index
+
+| Step | Screenshot | Description |
+|------|-----------|-------------|
+| 1️⃣ | 01-device-enrolled.png | Personal Windows device enrolled into Microsoft Intune (BYOD) |
+| 2️⃣ | 02-device-visible-intune.png | Device visible in Intune with Personal ownership and Compliant status |
+| 3️⃣ | 03-company-portal-login.png | User successfully signed in to Microsoft Company Portal |
+| 4️⃣ | 04-company-portal-apps-visible.png | Company Portal displaying available corporate applications |
+| 5️⃣ | 05-app-assignment-intune.png | Application assigned to M365-Business-Users group via Intune |
+| 6️⃣ | 06-approved-apps-visible.png | Approved applications visible to end user in Company Portal |
+| 7️⃣ | 07-configuration-profiles.png | Windows configuration profiles available in Intune |
 
 
