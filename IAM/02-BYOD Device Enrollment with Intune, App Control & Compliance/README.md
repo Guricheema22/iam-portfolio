@@ -1,20 +1,20 @@
 # Lab 02 – Microsoft Intune BYOD Enrollment & Application Management
 
 ## Overview
-This lab demonstrates how Microsoft Intune is used to manage **Bring Your Own Device (BYOD)** access in an enterprise environment.
+This lab demonstrates how Microsoft Intune is used to securely manage Bring Your Own Device (BYOD) access in an enterprise environment.
 
-The objective is to show how an existing Microsoft Entra ID user enrolls a personal Windows device into Intune, gains controlled access to corporate applications, and is governed through centralized endpoint management — reflecting real-world enterprise endpoint security operations.
+The objective is to show how an existing Microsoft Entra ID user enrolls a personal Windows device, gains controlled access to corporate applications via Intune, and how device trust and compliance are validated — reflecting real-world enterprise endpoint management practices.
 
 ---
 
 ## Scenario
-Employee **John Smith** uses his **personal Windows 11 Pro device** to access company applications and resources.
+Employee **John Smith** uses his personal **Windows 11 Pro** device to access company resources and applications.
 
-The administrator must:
-- Enroll the personal device into Microsoft Intune
-- Maintain BYOD ownership separation
-- Control which applications are available to the user
-- Verify device compliance and application visibility
+The organisation must:
+- Securely enroll the personal device into Microsoft Intune
+- Establish Microsoft Entra ID trust with the device
+- Provide access only to IT-approved applications
+- Maintain visibility of device compliance without full device ownership
 
 ---
 
@@ -24,104 +24,93 @@ The administrator must:
 - Microsoft 365 Business Premium
 - Windows 11 Pro (BYOD)
 - Microsoft Company Portal
+- Microsoft Entra ID Device Management
 
 ---
 
 ## Step-by-Step Implementation
 
-### 1️⃣ BYOD Device Enrollment
-- John Smith enrolled his personal Windows 11 device using **Microsoft Entra ID**
-- Device joined through **Access work or school**
-- Enrollment completed without converting the device to corporate-owned
+### 1️⃣ Join Device to Microsoft Entra ID
+- On the personal Windows 11 device, initiated **Join this device to Microsoft Entra ID**
+- Signed in using **John Smith’s work account**
+- Device successfully registered and trusted by Entra ID
 
-📸 Evidence: `01-device-enrolled.png`
+📸 Evidence: `01-entra-id-device-join.png`
 
 ---
 
-### 2️⃣ Device Visibility & Compliance
-- Administrator verified device enrollment in Intune
+### 2️⃣ Device Registration Confirmation
+- Windows confirmed successful registration of the device
+- Device identity established with Microsoft Entra ID
+
+📸 Evidence: `02-device-registered-successfully.png`
+
+---
+
+### 3️⃣ Company Portal Sign-In
+- Signed in to **Microsoft Company Portal** as John Smith
+- Company Portal recognized the enrolled device
+
+📸 Evidence: `03-company-portal-signin.png`
+
+---
+
+### 4️⃣ Device Compliance Validation (End User View)
+- Navigated to **Devices** tab in Company Portal
+- Device showed **green compliance status**
+- Confirmed device meets assigned security and compliance policies
+
+📸 Evidence: `04-device-compliance-green-tick.png`
+
+---
+
+### 5️⃣ Application Visibility for User
+- Navigated to **Apps** section in Company Portal
+- Verified visibility of **IT-approved applications only**
+- Confirms application allow-listing via Intune
+
+📸 Evidence: `05-approved-apps-visible.png`
+
+---
+
+### 6️⃣ Administrative Verification in Intune
+- Accessed **Microsoft Intune Admin Center**
+- Verified device appears under **Windows devices**
+- Device status shows:
+  - Managed by Intune
+  - Compliance = Compliant
+  - Ownership = Personal (BYOD)
+
+📸 Evidence: `06-intune-device-visible.png`
+
+---
+
+### 7️⃣ Technical Validation – Entra ID Join Status
+- Executed `dsregcmd /status` on the device
 - Confirmed:
-  - Device appears under Windows devices
-  - Ownership is marked as **Personal**
-  - Device is managed by **Intune**
-  - Compliance status is **Compliant**
+  - `AzureAdJoined : YES`
+  - `DeviceAuthStatus : SUCCESS`
+  - Device successfully trusted by Microsoft Entra ID
 
-📸 Evidence: `02-device-visible-intune.png`
-
----
-
-### 3️⃣ Company Portal Access
-- John Smith signed in to **Microsoft Company Portal**
-- Verified successful authentication and device trust
-
-📸 Evidence: `03-company-portal-login.png`
+📸 Evidence: `07-entra-id-join-validation.png`
 
 ---
 
-### 4️⃣ Application Visibility Validation
-- Confirmed that the **Apps** section is accessible in Company Portal
-- Validated that application catalog loads correctly for the user
-
-📸 Evidence: `04-company-portal-apps-visible.png`
-
----
-
-### 5️⃣ Application Assignment via Intune
-- Administrator assigned approved applications via Intune
-- Applications were assigned to **M365-Business-Users** security group
-- Assignment type configured as **Available for enrolled devices**
-
-📸 Evidence: `05-app-assignment-intune.png`
-
----
-
-### 6️⃣ End-User Application Access
-- John Smith verified assigned applications appear in Company Portal
-- Confirmed only IT-approved applications are available for installation
-
-📸 Evidence: `06-approved-apps-visible.png`
-
----
-
-### 7️⃣ Configuration Profile Overview
-- Administrator reviewed Windows configuration profiles in Intune
-- Identified enterprise controls such as:
-  - BitLocker encryption
-  - Password policies
-  - Device security settings
-
-📸 Evidence: `07-configuration-profiles.png`
-
----
-
-## Security & Endpoint Concepts Demonstrated
-- BYOD device onboarding
-- Separation of personal vs corporate ownership
-- Centralized endpoint management
-- Application allow-listing
-- Group-based access control
-- Endpoint compliance visibility
+## Security & Endpoint Management Concepts Demonstrated
+- BYOD enrollment using Microsoft Intune
+- Microsoft Entra ID device trust establishment
+- Separation of personal ownership and corporate control
+- Application access governance via Intune
+- Device compliance and posture visibility
+- Identity-first endpoint security model
 
 ---
 
 ## Key Takeaways
-- BYOD devices can be securely managed without full corporate ownership
-- Intune provides centralized visibility and control over endpoints
-- Application access can be tightly controlled using group assignments
-- Company Portal acts as a secure bridge between users and corporate resources
-- Endpoint management complements identity-first security models
+- BYOD devices can securely access corporate resources without full device ownership
+- Microsoft Entra ID provides strong device identity and trust
+- Intune enables centralized visibility and application control
+- Users only see applications explicitly approved by IT
+- Device compliance can be verified from both user and admin perspectives
 
 ---
-## Evidence Index
-
-| Step | Screenshot | Description |
-|------|-----------|-------------|
-| 1️⃣ | 01-device-enrolled.png | Personal Windows device enrolled into Microsoft Intune (BYOD) |
-| 2️⃣ | 02-device-visible-intune.png | Device visible in Intune with Personal ownership and Compliant status |
-| 3️⃣ | 03-company-portal-login.png | User successfully signed in to Microsoft Company Portal |
-| 4️⃣ | 04-company-portal-apps-visible.png | Company Portal displaying available corporate applications |
-| 5️⃣ | 05-app-assignment-intune.png | Application assigned to M365-Business-Users group via Intune |
-| 6️⃣ | 06-approved-apps-visible.png | Approved applications visible to end user in Company Portal |
-| 7️⃣ | 07-configuration-profiles.png | Windows configuration profiles available in Intune |
-
-
