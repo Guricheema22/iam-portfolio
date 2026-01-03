@@ -1,4 +1,4 @@
-# Lab 01 – Microsoft Entra ID User, Group & License Lifecycle
+# Lab 01 – Microsoft Entra ID User, Group & License Lifecycle.
 
 ## Overview
 This lab demonstrates an end-to-end Identity and Access Management (IAM) workflow using Microsoft Entra ID and Microsoft 365.
