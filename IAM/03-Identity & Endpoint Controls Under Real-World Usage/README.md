@@ -49,37 +49,29 @@ This lab follows real-world IAM guidance:
 
 ## Validation Steps
 
-### 1️⃣ Windows Sign-In
-- John Smith signs in to Windows using his Entra ID (work) account
-- No MFA prompt is presented during this session
+### 1️⃣ Microsoft 365 Portal Access
+- John Smith accesses the Microsoft 365 portal
+- Portal loads successfully without requesting additional credentials
+- Confirms valid authentication session and SSO behaviour
 
-📸 Evidence: `01-windows-sign-in-success.png`
-
----
-
-### 2️⃣ Microsoft 365 Portal Access
-- User accesses the Microsoft 365 portal
-- Portal loads without requesting additional credentials
-
-📸 Evidence: `02-m365-portal-access.png`
+📸 Evidence: `01-m365-portal-access.png`
 
 ---
 
-### 3️⃣ Microsoft 365 Application Access
+### 2️⃣ Microsoft 365 Application Access
 - User opens Microsoft Word and Microsoft Teams
-- Applications launch successfully without additional sign-in prompts
+- Applications launch without additional sign-in prompts
 - User identity is displayed within applications
 
 📸 Evidence:
-- `03-word-app-signed-in.png`
-- `04-teams-app-access.png`
+- `02-word-app-signed-in.png`
+- `03-teams-app-access.png`
 
 ---
 
-### 4️⃣ Sign-In Log Verification
+### 3️⃣ Sign-In Log Verification
 - Administrator reviews **Entra ID → Sign-in logs**
 - Multiple successful sign-ins are recorded for:
-  - Windows Sign-in
   - OfficeHome
   - Azure Portal
   - Microsoft 365 applications
@@ -88,13 +80,13 @@ This lab follows real-world IAM guidance:
   - Sign-in error code: **0**
   - No authentication failures
 
-📸 Evidence: `05-signin-logs-success.png`
+📸 Evidence: `04-signin-logs-success.png`
 
 ---
 
 ## Observations & Analysis
 - Single Sign-On (SSO) functions as expected
-- Tokens are reused across Microsoft services
+- Authentication tokens are reused across Microsoft services
 - No repeated authentication challenges occur
 - User experience remains seamless
 - Administrators retain full audit visibility
