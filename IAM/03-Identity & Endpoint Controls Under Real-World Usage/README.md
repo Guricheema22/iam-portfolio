@@ -1,30 +1,33 @@
 # Lab 03 – Identity & Endpoint Controls Under Real-World Usage
 
 ## Overview
-This lab evaluates Microsoft Entra ID authentication behaviour under normal, day-to-day user activity.
+This lab evaluates Microsoft Entra ID authentication behaviour during normal, day-to-day user activity.
 
-Unlike previous labs that focus on configuration and onboarding, this lab is observational. The goal is to validate how identity, authentication, and endpoint controls behave once a user is already enrolled and licensed — reflecting real-world enterprise usage rather than setup tasks.
+Unlike previous labs that focus on configuration and onboarding, this lab is **observational**. The objective is to validate how identity, authentication, and endpoint controls behave once a user is already enrolled, licensed, and compliant — reflecting real-world enterprise usage rather than setup tasks.
 
 ---
 
 ## Scope
 This lab assumes the following are already in place:
-
-- Lab 01 – Entra ID User, Group & License Lifecycle
-- Lab 02 – Intune BYOD Enrollment & Application Management
+- **Lab 01** – Entra ID User, Group & License Lifecycle
+- **Lab 02** – Intune BYOD Enrollment & Application Management
 
 ⚠️ No enrollment, configuration, or policy changes are performed in this lab.
 
 ---
 
 ## Scenario
-**John Smith** now uses his Microsoft Entra ID account for daily work activities.
+Employee **John Smith** is actively using his Microsoft Entra ID account for daily work activities across Microsoft 365 services.
 
-The objective is to observe how identity, authentication, and endpoint controls function during normal usage, without forcing additional security prompts or user friction.
+The organisation must ensure:
+- Authentication remains seamless during normal usage
+- Single Sign-On (SSO) functions correctly
+- Identity activity is fully visible and auditable
+- Security controls do not introduce unnecessary user friction
 
-This lab follows real-world IAM guidance:
+This lab aligns with real-world IAM guidance:
 
-> *Security controls must be evaluated in daily usage, not only during setup.*
+> **Security controls must be evaluated during daily usage, not only during initial setup.**
 
 ---
 
@@ -43,13 +46,13 @@ This lab follows real-world IAM guidance:
 - Validate Single Sign-On (SSO) across Microsoft 365 services
 - Confirm visibility and auditability in Entra ID sign-in logs
 - Ensure no unnecessary authentication prompts occur
-- Validate expected enterprise authentication behaviour
+- Establish a baseline enterprise authentication experience
 
 ---
 
 ## Validation Steps
 
-### 1️⃣ Microsoft 365 Portal Access
+### 1. Microsoft 365 Portal Access
 - John Smith accesses the Microsoft 365 portal
 - Portal loads successfully without requesting additional credentials
 - Confirms valid authentication session and SSO behaviour
@@ -58,10 +61,10 @@ This lab follows real-world IAM guidance:
 
 ---
 
-### 2️⃣ Microsoft 365 Application Access
+### 2. Microsoft 365 Application Access
 - User opens Microsoft Word and Microsoft Teams
 - Applications launch without additional sign-in prompts
-- User identity is displayed within applications
+- User identity is displayed within each application
 
 📸 Evidence:
 - `02-word-app-signed-in.png`
@@ -69,15 +72,15 @@ This lab follows real-world IAM guidance:
 
 ---
 
-### 3️⃣ Sign-In Log Verification
+### 3. Entra ID Sign-In Log Verification
 - Administrator reviews **Entra ID → Sign-in logs**
 - Multiple successful sign-ins are recorded for:
   - OfficeHome
   - Azure Portal
   - Microsoft 365 applications
 - All entries show:
-  - Status: **Success**
-  - Sign-in error code: **0**
+  - Status: Success
+  - Sign-in error code: 0
   - No authentication failures
 
 📸 Evidence: `04-signin-logs-success.png`
@@ -85,24 +88,21 @@ This lab follows real-world IAM guidance:
 ---
 
 ## Observations & Analysis
-- Single Sign-On (SSO) functions as expected
+- Single Sign-On (SSO) operates as expected
 - Authentication tokens are reused across Microsoft services
 - No repeated authentication challenges occur
-- User experience remains seamless
-- Administrators retain full audit visibility
+- User experience remains seamless and uninterrupted
+- Administrators retain full authentication visibility and audit capability
 
-This behaviour represents a correctly implemented enterprise identity baseline.
+This behaviour represents a **correctly implemented enterprise identity baseline**.
 
 ---
 
 ## Key Takeaways
 - Not every sign-in should trigger MFA
-- Strong identity design balances security and usability
-- SSO significantly improves productivity
-- Entra ID sign-in logs provide reliable validation and audit capability
+- Strong identity design balances security with usability
+- SSO significantly improves end-user productivity
+- Entra ID sign-in logs provide reliable audit and troubleshooting insights
+- Establishing a baseline is critical before applying stricter Conditional Access controls
 
-This lab establishes a baseline authentication experience that will be hardened in subsequent labs using Conditional Access and MFA policies.
-
----
-
-## Evidence Folder Structure
+This lab sets the foundation for subsequent labs where authentication behaviour will be intentionally hardened using Conditional Access, MFA enforcement, and risk-based controls.
