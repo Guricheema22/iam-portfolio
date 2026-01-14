@@ -104,72 +104,92 @@ GET https://graph.microsoft.com/v1.0/users?$select=displayName,userPrincipalName
 
 
 
-### 6️⃣ Account Status Validation
-- Reviewed the `accountEnabled` attribute in the Graph response
-- Confirmed active users returned:
-  - `accountEnabled: true`
-- Enables programmatic verification of account lifecycle state
+6️⃣ Account Status Validation
+
+Reviewed the accountEnabled attribute in the Graph response
+
+Confirmed active users returned:
+
+accountEnabled: true
+
+Enables programmatic verification of account lifecycle state
 
 Supports:
-- Deprovisioning checks
-- Dormant account detection
-- Automated lifecycle workflows
 
-📸 **Evidence:**
-- `evidence/06-account-enabled-true.png`
+Deprovisioning checks
 
----
+Dormant account detection
 
-### 7️⃣ Governance-Style Query (Aged Access Example)
-- Executed a governance-style query to identify identities requiring review
+Automated lifecycle workflows
+
+📸 Evidence:
+
+evidence/06-account-enabled-true.png
+
+7️⃣ Governance-Style Query (Aged Access Example)
+
+Executed a governance-style query to identify identities requiring review
 
 Example enterprise use case:
-- Users or guest accounts older than a defined threshold (e.g. 90 days)
 
-Mirrors real-world IAM governance activities such as:
-- Access reviews
-- External user clean-up
-- Audit and compliance reporting
+Users or guest accounts older than a defined threshold (e.g. 90 days)
+
+Mirrors real-world IAM governance activities:
+
+Access reviews
+
+External user clean-up
+
+Audit and compliance reporting
 
 These queries are typically:
-- Scheduled
-- Automated
-- Exported to security or compliance teams
 
-📸 **Evidence:**
-- `evidence/07-governance-query-aged-access.png`
+Scheduled
 
+Automated
 
+Exported to security or compliance teams
 
----
+📸 Evidence:
 
-## Security & IAM Concepts Demonstrated
+evidence/07-governance-query-aged-access.png
 
-- Non-human identities (application registrations)
-- Least-privilege permission assignment
-- Admin consent governance
-- Programmatic identity visibility
-- Lifecycle state validation
-- Identity governance and audit readiness
-- Automation-first IAM design
+Security & IAM Concepts Demonstrated
 
----
+Non-human identities (application registrations)
 
-## Enterprise Relevance
+Least-privilege permission assignment
+
+Admin consent governance
+
+Programmatic identity visibility
+
+Lifecycle state validation
+
+Identity governance and audit readiness
+
+Automation-first IAM design
+
+Enterprise Relevance
 
 This lab reflects how organisations:
 
-- Automate access reviews
-- Detect stale or risky identities
-- Support audit and compliance requirements
-- Integrate identity data into security tooling
+Automate access reviews
 
----
+Detect stale or risky identities
 
-## Key Takeaways
+Support audit and compliance requirements
 
-- Microsoft Graph enables identity operations beyond portal limitations
-- Enterprise IAM relies on automation, not manual checks
-- Programmatic access is essential for governance and compliance
-- Graph-based reporting scales to thousands of identities
-- This approach mirrors real-world IAM consulting and enterprise operations
+Integrate identity data into security tooling
+
+Key Takeaways
+
+Microsoft Graph enables identity operations beyond portal limitations
+
+Enterprise IAM relies on automation, not manual checks
+
+Programmatic access is essential for governance and compliance
+
+Graph-based reporting scales to thousands of identities
+
+This approach mirrors real-world IAM consulting and enterprise operations
