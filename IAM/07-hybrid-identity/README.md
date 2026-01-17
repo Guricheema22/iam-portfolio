@@ -1,107 +1,215 @@
-# Project 07 – Hybrid Identity Overview (Active Directory & Entra ID)
-
-## Scenario
-The organisation operates in a cloud-first model with Microsoft Entra ID as the primary identity provider.
-While the current tenant is cloud-only, hybrid identity concepts are required to support environments that integrate on-premises Active Directory with cloud identity services.
 
 ---
 
-## Objective
-To understand and document hybrid identity architecture, including how on-premises Active Directory integrates with Microsoft Entra ID, and how identity authority and authentication are managed in hybrid environments.
+## 📌 Scope
+
+This lab performs an enterprise-style hybrid migration including:
+
+- Creating organisational OUs  
+- Creating and structuring on-prem AD users & groups  
+- Assigning on-prem roles through security groups  
+- Installing Microsoft Entra Connect  
+- Validating hybrid identity sync  
+- Verifying source-of-authority attributes  
+- Mapping on-prem identities to cloud objects  
+
+This simulates the identity model used by **most enterprise organisations today**.
 
 ---
 
-## Current Tenant State
-- Identity provider: Microsoft Entra ID
-- Tenant type: Cloud-only
-- On-premises Active Directory: Not present
-- Entra ID Connect: Not configured
+## 👥 Users and Groups Created
 
-This reflects a modern cloud-first organisation or a learning tenant without legacy infrastructure.
+**Organisational Units:**
+- `Esimxpress`
+  - `Users`
+  - `Groups`
 
----
+**Security Groups:**
+- `Finance`
+- `HR`
+- `M365-Business-Users`
 
-## Hybrid Identity Architecture (Conceptual)
+**Users (6 total):**
+- Andrew Parker (a.parker)
+- Sarah Smith (s.smith)
+- Michael Jones (m.jones)
+- Emily Brown (e.brown)
+- John Carter (j.carter)
+- Olivia Patel (o.patel)
 
-### On-Premises Active Directory
-- Manages user and computer accounts within corporate networks
-- Acts as the authoritative source for identity attributes in hybrid environments
-- Handles on-premises authentication and group-based access
+Each user created in **AD only**, no cloud creation.
 
----
-
-### Microsoft Entra ID
-- Provides cloud authentication and authorization
-- Enforces MFA and Conditional Access
-- Controls access to Microsoft 365 and Azure resources
-
----
-
-### Entra ID Connect
-- Synchronisation tool used to connect on-prem AD with Entra ID
-- Syncs users, groups, and attributes
-- Does not replace on-prem AD
-
-Entra ID Connect only appears in the Entra portal when hybrid sync has been configured.
+📸 *Evidence:*  
+- `evidence/01-ou-structure.png`  
+- `evidence/02-ad-users-created.png`  
+- `evidence/03-ad-groups-created.png`
 
 ---
 
-## Authentication Models in Hybrid Identity
-
-### Password Hash Synchronization (Recommended)
-- Password hash synced to Entra ID
-- Cloud authentication handled by Entra ID
-- Minimal on-prem dependency
-- Most common and recommended model
+## 🪜 Step-by-Step Implementation
 
 ---
 
-### Pass-Through Authentication
-- Password validation occurs on-premises
-- Requires on-prem availability
-- Higher operational complexity
+### 1️⃣ Create Organisational Units
+
+- Open **Active Directory Users and Computers**
+- Right-click domain → *New → Organizational Unit*
+- Create:
+  - `Esimxpress`
+  - Inside it create:
+    - `Users`
+    - `Groups`
+
+📸 Evidence:  
+- `evidence/01-ou-created.png`
 
 ---
 
-### Federation (ADFS)
-- Legacy authentication model
-- Complex to maintain
-- Typically used in older enterprise environments
+### 2️⃣ Create Security Groups
+
+- Inside `Groups` OU → *New → Group*
+- Group type: **Security**
+- Group scope: **Global**
+- Create:
+  - `Finance`
+  - `HR`
+  - `M365-Business-Users`
+
+📸 Evidence:  
+- `evidence/02-groups-created.png`
 
 ---
 
-## Source of Authority
-- On-prem AD is the authoritative source in hybrid identity
-- Certain attributes become read-only in Entra ID
-- Changes such as password resets or account disablement are performed on-prem
+### 3️⃣ Create On-Prem Users
+
+For each user:
+- Right-click `Esimxpress → Users → New → User`
+- Set UPN suffix: `@lab.local`
+- Specify:
+  - First/Last name
+  - User logon name
+  - Password (uncheck "User must change password")
+
+Add users to appropriate groups.
+
+📸 Evidence:  
+- `evidence/03-users-created.png`
+- `evidence/04-users-in-groups.png`
 
 ---
 
-## Common Hybrid Identity Issues
+### 4️⃣ Install Microsoft Entra Connect
 
-**User cannot edit attributes in Entra ID**
-- User is synchronized from on-prem AD
+Steps performed:
+- Downloaded Entra Connect from Entra Admin Portal (not Microsoft Download Center)
+- Ran installer on Domain Controller
+- Selected **Express Setup**
+- Signed in with Entra Global Administrator  
+- Provided AD DS enterprise admin credentials
 
-**Password reset does not apply immediately**
-- Sync delay between AD and Entra ID
-
-**Account disabled in AD but still active in cloud**
-- Sync cycle not completed or soft-deleted state
-
----
-
-## Design Considerations
-- Hybrid identity enables gradual cloud adoption
-- MFA and Conditional Access are enforced in Entra ID
-- On-prem dependency should be minimized where possible
-- Cloud-only identities simplify management when legacy systems are retired
+📸 Evidence:  
+- `evidence/05-entra-connect-install.png`
+- `evidence/06-connect-ad-ds.png`
 
 ---
 
-## Outcome
-This project demonstrates the ability to:
-- Understand hybrid identity architecture
-- Explain Entra ID Connect and authentication models
-- Identify source-of-authority behavior
-- Troubleshoot common hybrid identity scenarios
-- Operate confidently in both cloud-only and hybrid environments
+### 5️⃣ Microsoft Entra Sign-In Configuration
+
+- Detected AD UPN suffix: `lab.local`
+- No matching cloud domain → Clicked **Continue without matching**
+- Proceeded with hybrid sync configuration
+
+📸 Evidence:  
+- `evidence/07-signin-config.png`
+
+---
+
+### 6️⃣ Initial Synchronisation
+
+- Completed configuration
+- Sync started automatically
+- Verified sync status in:
+  - Entra Admin → **Identity → Synchronization**
+  - Sync cycles (green check mark)
+
+📸 Evidence:
+- `evidence/08-sync-success.png`
+
+---
+
+### 7️⃣ Validate User Sync in Entra
+
+For each user:
+- Go to **Entra Admin → Users**
+- Confirm:
+  - User exists
+  - `On-premises sync enabled: Yes`
+  - `On-premises distinguished name` matches AD
+  - `Source: Windows Server AD`
+  - `On-premises UPN`, `SAM account name`, and SID present
+
+📸 Evidence:
+- `evidence/09-user-cloud-properties.png`
+
+---
+
+### 8️⃣ Validate Group Sync and Membership
+
+- Go to **Entra Admin → Groups**
+- Ensure groups:
+  - `Finance`
+  - `HR`
+  - `M365-Business-Users`
+  have synced
+- Validate cloud membership matches AD membership
+
+📸 Evidence:
+- `evidence/10-group-cloud-properties.png`
+
+---
+
+## 🔐 Security & IAM Concepts Demonstrated
+
+- Directory source of authority (AD DS → Entra)
+- Immutable ID mapping  
+- Object matching and provisioning  
+- UPN suffix alignment challenges  
+- Group-based access provisioning  
+- Hybrid identity lifecycle  
+- Synchronisation health monitoring  
+- Enterprise OU and group design  
+- Admin credential separation  
+- Understanding hybrid identity risk  
+- Cloud readiness for full modernisation  
+
+---
+
+## 🏢 Enterprise Relevance
+
+This lab reflects how real organisations:
+
+- Maintain hybrid identity for years  
+- Use AD as authoritative identity source  
+- Synchronise users/groups to Entra  
+- Modernise authentication workloads  
+- Prepare for Conditional Access, MFA, Intune  
+- Lay foundation for Zero Trust  
+
+Most Australian enterprises (Gov, Health, Education, Finance) are in exactly this hybrid stage today.
+
+---
+
+## 📌 Key Takeaways
+
+- Hybrid identity is the **most common** architecture in the world  
+- AD remains the **system of record** until fully modernised  
+- Entra Connect establishes authoritative identity mapping  
+- Cloud objects reflect AD attributes, not vice-versa  
+- Proper OU & group design is critical for smooth migration  
+- This lab simulates REAL enterprise IAM engineering  
+- This is a high-value project for recruiters—shows practical hands-on skill  
+
+---
+
+
+
