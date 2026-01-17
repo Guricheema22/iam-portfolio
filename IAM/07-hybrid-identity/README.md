@@ -1,4 +1,26 @@
+# Lab 07 — Hybrid Identity Migration (Active Directory → Microsoft Entra ID)
 
+This lab demonstrates a full hybrid identity deployment using:
+- On-premises Active Directory Domain Services (AD DS)
+- Microsoft Entra Connect Sync
+- Group & user provisioning from AD to Entra
+- Identity lifecycle + cloud provisioning validation
+
+This lab mirrors *real enterprise conditions* where organisations maintain AD as the authoritative identity source while extending identity to the cloud for M365 and SaaS apps.
+
+---
+
+## 🏗️ Architecture Overview
+
+**Components:**
+- On-premises Domain Controller  
+- Active Directory Users & Groups  
+- Azure tenant with custom domain  
+- Microsoft Entra Connect Sync (latest version)  
+- Hybrid identity source-of-authority: AD DS  
+
+**Flow:**
+AD Users/Groups → Entra Connect Sync → Microsoft Entra ID
 ---
 
 ## 📌 Scope
