@@ -228,8 +228,7 @@ Most Australian enterprises (Gov, Health, Education, Finance) are in exactly thi
 - Entra Connect establishes authoritative identity mapping  
 - Cloud objects reflect AD attributes, not vice-versa  
 - Proper OU & group design is critical for smooth migration  
-- This lab simulates REAL enterprise IAM engineering  
-- This is a high-value project for recruiters—shows practical hands-on skill  
+- This lab simulates REAL enterprise IAM engineering    
 
 ---
 
