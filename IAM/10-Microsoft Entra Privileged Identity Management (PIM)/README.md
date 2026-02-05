@@ -1,4 +1,4 @@
-# 🔐 Lab 09 – Microsoft Entra Privileged Identity Management (PIM)
+# 🔐 Lab 10 – Microsoft Entra Privileged Identity Management (PIM)
 
 ## 📝 Overview
 Microsoft Entra **Privileged Identity Management (PIM)** is a security feature that protects elevated/admin access in an organisation.  
