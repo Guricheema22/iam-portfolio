@@ -43,9 +43,8 @@ Added Michael to:
 - **M365-Business-Users**
 
 These groups control departmental access and permissions.
-
-📸 `images/02-group-membership-michael.png`  
-📸 `images/03-added-to-finance-group.png`
+  
+📸 `images/02-added-to-finance-group.png`
 
 ---
 
@@ -54,7 +53,7 @@ Assigned license:
 
 - **Microsoft 365 Business Premium**
 
-📸 `images/04-license-assignment-michael.png`
+📸 `images/03-license-assignment-michael.png`
 
 ---
 
@@ -64,7 +63,7 @@ Created a shared departmental mailbox:
 - **Finance Shared Mailbox**  
 - Email: `finance@tenant.onmicrosoft.com`
 
-📸 `images/05-create-finance-shared-mailbox.png`
+📸 `images/04-create-finance-shared-mailbox.png`
 
 ---
 
@@ -76,8 +75,7 @@ Assigned:
 
 to Michael Scott.
 
-📸 `images/06-finance-mailbox-delegation.png`  
-📸 `images/07-michael-has-send-as.png`
+📸 `images/05-finance-mailbox-delegation.png`  
 
 ---
 
@@ -88,8 +86,7 @@ Verification completed:
 - Confirmed mailbox type = *SharedMailbox*  
 - Confirmed delegation permissions  
 
-📸 `images/08-michael-groups-confirmation.png`  
-📸 `images/09-finance-mailbox-members.png`
+📸 `images/06-michael-groups-confirmation.png`  
 
 ---
 
