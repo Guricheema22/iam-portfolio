@@ -166,13 +166,3 @@ I learned:
 
 ---
 
-# Interview Takeaway
-
-After completing this lab, I can confidently explain:
-
-- Basic SAML authentication flow
-- Role of Identity Provider and Service Provider
-- Purpose of ACS URL and Entity ID
-- What a SAML assertion contains
-- How user claims are sent during authentication
-- Difference between authentication and authorization
