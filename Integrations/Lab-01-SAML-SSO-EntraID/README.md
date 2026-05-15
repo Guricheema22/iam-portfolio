@@ -48,34 +48,81 @@ Enabled SAML authentication under Single Sign-On settings.
 
 ## 3. Added Entity ID and ACS URL
 
-4. Assigned Users
+### Entity ID
+```text
+https://sptest.iamshowcase.com/metadata
+
+ACS URL (Reply URL)
+https://sptest.iamshowcase.com/acs
+
+## 4. Assigned Users
 
 Assigned my user account to the application to allow access.
 
-5. Tested Authentication Flow
+---
+
+## 5. Tested Authentication Flow
 
 Successfully authenticated into the SAML test application using Microsoft Entra ID.
 
-6. Reviewed SAML Assertion Details
+---
+
+## 6. Reviewed SAML Assertion Details
 
 Validated authentication information and user claims sent from Entra ID to the Service Provider.
 
-Authentication Flow
-User opened the application
-Application redirected user to Microsoft Entra ID
-User authenticated successfully
-Entra ID generated SAML assertion
-Assertion was sent to the ACS URL
-Application granted access
-Claims Observed
+---
+
+# Authentication Flow
+
+1. User opened the application  
+2. Application redirected the user to Microsoft Entra ID for authentication  
+3. User authenticated successfully  
+4. Entra ID generated a signed SAML assertion containing authentication details and user claims  
+5. Assertion was sent to the ACS URL  
+6. Application granted access
+
+# Claims Observed
 
 The following claims were visible inside the SAML assertion:
 
-Display Name
-Email Address
-Given Name
-Surname
-Tenant ID
-Object Identifier
-Identity Provider
+- Display Name
+- Email Address
+- Given Name
+- Surname
+- Tenant ID
+- Object Identifier
+- Identity Provider
+
+These claims provided user information to the application after successful authentication.
+
+---
+
+# Authentication vs Authorization
+
+## Authentication
+
+Authentication verifies the identity of the user.
+
+In this lab, Microsoft Entra ID handled authentication by validating user credentials.
+
+---
+
+## Authorization
+
+Authorization determines whether an authenticated user is allowed to access the application.
+
+In this lab, user assignment controlled authorization.
+
+# What I Learned
+
+This lab helped me understand how enterprise applications use Microsoft Entra ID for authentication through SAML SSO.
+
+I learned:
+
+- How trust is established between an application and Identity Provider
+- How SAML assertions are generated
+- How claims are passed to applications
+- Difference between authentication and authorization
+- Importance of Entity ID and ACS URL during integration
 - Basic SAML authentication workflow
