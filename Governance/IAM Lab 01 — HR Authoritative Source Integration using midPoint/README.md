@@ -85,7 +85,7 @@ HR CSV File
 
 ## HR Resource Objects Discovered
 
-![test](screenshots/HR_Resource_Objects_Discovered.png)
+Governance/IAM Lab 01 — HR Authoritative Source Integration using midPoint/screenshots/HR_Resource_Objects_Discovered.png
 
 This screenshot shows employee records successfully discovered from the HR CSV file under Resource Objects.
 
