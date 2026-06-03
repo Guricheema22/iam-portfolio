@@ -85,7 +85,8 @@ HR CSV File
 
 ## HR Resource Objects Discovered
 
-<img width="1918" height="867" alt="HR_Resource_Objects_Discovered" src="https://github.com/user-attachments/assets/88b8f1f2-0d23-4968-8859-089cf898e776" />
+<img width="1918" height="867" alt="HR_Resource_Objects_Discovered" src="https://github.com/user-attachments/assets/0a1107f3-ff59-4a63-8304-81ccf3bac2d7" />
+
 
 
 This screenshot shows employee records successfully discovered from the HR CSV file under Resource Objects.
