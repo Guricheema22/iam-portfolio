@@ -1,4 +1,4 @@
-```markdown
+
 # IAM Lab 01 — HR Authoritative Source Integration using midPoint
 
 # Lab Overview
@@ -391,23 +391,4 @@ This troubleshooting exercise helped reinforce the difference between:
 - synchronization
 - actual identity provisioning
 
----
 
-# Next Steps
-
-The next lab will focus on:
-- RBAC (Role-Based Access Control)
-- automatic role assignment
-- department-based access management
-
-Future labs will include:
-- Joiner / Mover / Leaver workflows
-- Okta integration
-- SCIM provisioning
-- SAML / OIDC federation
-- Access governance
-- Identity certification
-- Segregation of Duties (SoD)
-
-The overall goal is to continue building practical enterprise IAM engineering skills through hands-on labs and real workflow simulation.
-```
