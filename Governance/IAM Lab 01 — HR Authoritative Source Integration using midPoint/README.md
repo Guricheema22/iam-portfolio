@@ -83,9 +83,9 @@ HR CSV File
 
 ---
 
-## 1. HR_Resource_Objects_Discovered
+## HR Resource Objects Discovered
 
-![test](screenshots/HR_Resource_Objects_Discovered.png)
+![HR_Resource_Objects_Discovered](screenshots/HR_Resource_Objects_Discovered.png)
 
 This screenshot shows employee records successfully discovered from the HR CSV file under Resource Objects.
 
