@@ -1,3 +1,4 @@
+![test](screenshots/HR_Resource_Objects_Discovered.png)
 ```markdown
 # IAM Lab 01 — HR Authoritative Source Integration using midPoint
 
