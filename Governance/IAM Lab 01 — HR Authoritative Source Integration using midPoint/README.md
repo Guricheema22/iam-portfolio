@@ -1,4 +1,3 @@
-![test](screenshots/HR_Resource_Objects_Discovered.png)
 ```markdown
 # IAM Lab 01 — HR Authoritative Source Integration using midPoint
 
@@ -86,7 +85,7 @@ HR CSV File
 
 ## 1. HR_Resource_Objects_Discovered
 
-![HR_Resource_Objects_Discovered](screenshots/HR_Resource_Objects_Discovered.png)
+![test](screenshots/HR_Resource_Objects_Discovered.png)
 
 This screenshot shows employee records successfully discovered from the HR CSV file under Resource Objects.
 
