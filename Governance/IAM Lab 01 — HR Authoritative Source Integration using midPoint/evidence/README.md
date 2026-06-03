@@ -18,4 +18,4 @@ IAM-Lab-01/
 
 [Open Full Screenshot](screenshots/HR_Resource_Objects_Discovered.png)
 
-![HR_Resource_Objects_Discovered](screenshots/HR_Resource_Objects_Discovered.png)
+![HR_Resource_Objects_Discovered](../screenshots/HR_Resource_Objects_Discovered.png)
