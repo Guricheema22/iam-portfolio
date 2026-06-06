@@ -1,19 +1,23 @@
-<h1 align="center">Hi 👋 I'm Gurvinder</h1>
-<h3 align="center">IT Support | Microsoft 365 | Azure | Identity & Access | Networking Fundamentals</h3>
+# Hi 👋 I'm Gurvinder
+
+### Identity & Access Management | Microsoft Entra ID | SSO & Federation | IAM Governance | Networking Fundamentals
 
 ---
 
 ## 👨‍💻 About Me
 
-Motivated IT professional transitioning into full-time IT Support and Cloud Engineering.
+Motivated and self-driven aspiring Identity and Access Management (IAM) professional focused on building real-world experience in identity governance, authentication, federation, and modern cloud identity technologies.
 
-- 🔧 Hands-on labs in Microsoft 365, Entra ID & Active Directory  
-- ☁️ Microsoft Certified: Azure Fundamentals (AZ-900)  
-- 🛡 Microsoft Certified: Security, Compliance & Identity Fundamentals (SC-900)  
-- 📦 Microsoft Certified: Microsoft 365 Fundamentals (MS-900)  
-- 🔐 Microsoft Applied Skills: Identity & Access with Microsoft Entra  
-- 🌐 Networking & Cybersecurity fundamentals (Cisco NetAcad)  
-- 🎯 Career Goal: Grow into Systems / Cloud / Identity Engineering    
+* 🔐 Hands-on IAM labs using midPoint, Microsoft Entra ID, Auth0 & Okta
+* ☁️ Practical experience with SAML, OIDC, OAuth 2.0 & JWT authentication
+* 🛡️ Microsoft Certified: Security, Compliance & Identity Fundamentals (SC-900)
+* ☁️ Microsoft Certified: Azure Fundamentals (AZ-900)
+* 💼 Microsoft Certified: Microsoft 365 Fundamentals (MS-900)
+* 🔑 Microsoft Applied Skills: Identities & Access using Microsoft Entra
+* 🌐 Networking & Cybersecurity fundamentals (Cisco NetAcad)
+* 🧪 Building enterprise-style IAM governance, provisioning & federation labs
+* 🚀 Career Goal: Grow into Identity & Access Management and Identity Security Engineering
+ 
 
 ---
 
@@ -30,42 +34,33 @@ Motivated IT professional transitioning into full-time IT Support and Cloud Engi
 
 ---
 
-## 🛠 Core Technical Skills
+🛠️ Core Technical Skills
+Identity & Security
+Microsoft Entra ID (Azure AD)
+Identity Governance & Administration (IGA)
+SAML 2.0
+OpenID Connect (OIDC)
+OAuth 2.0
+MFA & Conditional Access
+JWT Token Analysis
+Authentication & Federation Troubleshooting
+Infrastructure & Platforms
+Docker
+PostgreSQL
+Microsoft Graph API
+PowerShell Basics
+GitHub Documentation
+CSV Connectors
+Networking Fundamentals
+Professional Skills
+Problem Solving
+Troubleshooting
+Documentation
+Continuous Learning
+Customer Support & Communication
+🎯 Career Goal
 
-### 💼 IT Support
-- Windows 10/11 Troubleshooting  
-- Hardware Diagnostics  
-- Remote Support  
-- Ticketing Systems  
-- User Lifecycle Management  
-
-### ☁️ Cloud & Identity
-- Microsoft 365 Administration  
-- Entra ID (Azure AD)  
-- Exchange Online  
-- Intune Device Management  
-- MFA & Conditional Access  
-
-### 🌐 Networking
-- IP Addressing  
-- DNS / DHCP  
-- VPN Concepts  
-- Firewall Basics  
-
-### ⚙ Automation
-- PowerShell Basics  
-- User & License Management Scripts  
-
----
-
-## 📂 Featured Lab Projects
-
-🔐 User Lifecycle Management (Entra ID + M365)  
-📧 Mailbox & Shared Mailbox Configuration  
-🖥 Active Directory Domain Setup  
-📱 Intune Device Compliance Lab  
-🌐 Networking Configuration Lab  
-🔎 Phishing & Email Security Investigation Lab  
+To build a long-term career in Identity & Access Management and Identity Security by gaining hands-on experience with enterprise IAM technologies, governance platforms, authentication systems, and cloud identity architectures.
 
 ---
 
