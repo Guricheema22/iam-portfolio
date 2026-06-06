@@ -58,6 +58,7 @@ Troubleshooting
 Documentation
 Continuous Learning
 Customer Support & Communication
+
 🎯 Career Goal
 
 To build a long-term career in Identity & Access Management and Identity Security by gaining hands-on experience with enterprise IAM technologies, governance platforms, authentication systems, and cloud identity architectures.
