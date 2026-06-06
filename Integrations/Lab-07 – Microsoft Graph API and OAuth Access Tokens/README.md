@@ -1,4 +1,4 @@
-# Lab 09 – Microsoft Graph API and OAuth Access Tokens
+# Lab 07 – Microsoft Graph API and OAuth Access Tokens
 
 ## Objective
 
